@@ -56,6 +56,12 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("USERNAME");
 
+        user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userActionPerformed(evt);
+            }
+        });
+
         register.setBackground(new java.awt.Color(0, 102, 102));
         register.setForeground(new java.awt.Color(255, 255, 255));
         register.setText("REGISTER");
@@ -140,10 +146,10 @@ public class Register extends javax.swing.JFrame {
         String username = user.getText();
             String password = pass.getText();
         try{
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","Bittu@123");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/HUNGER","root","Bittu@123");
             Statement st=conn.createStatement(); 
-            String query1="INSERT INTO login.logintable"
-	 + " (USERNAME, PASSWORD)"
+            String query1="INSERT INTO HUNGER.ADMIN"
+	 + " (USER_ID, PASSWORD)"
 	 + "VALUES('"+username+"','"+password+"')";
             st.executeUpdate(query1);
             
@@ -163,6 +169,10 @@ public class Register extends javax.swing.JFrame {
         Login log = new Login();
         log.show();
     }//GEN-LAST:event_loginActionPerformed
+
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userActionPerformed
 
     /**
      * @param args the command line arguments

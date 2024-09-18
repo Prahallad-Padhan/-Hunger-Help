@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
  *
  * @author Prahallad
  */
+
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -100,8 +101,7 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(77, 77, 77)
-                                .addComponent(btnlogin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnlogin))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,12 +146,12 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try{
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","Bittu@123");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/HUNGER","root","Bittu@123");
             String username = user.getText();
             String password = pass.getText();
             
             Statement stm = conn.createStatement();
-            String sql = "select * from logintable where USERNAME='"+username+"' and PASSWORD='"+password+"'";
+            String sql = "select * from ADMIN where USER_ID='"+username+"' and PASSWORD='"+password+"'";
             ResultSet rs = stm.executeQuery(sql);
             
             if(rs.next()){
